@@ -67,6 +67,11 @@ main:
     movlb      58
     clrf       BANKMASK(ANSELA),b  ;select digital input for port A
 
+    ; to be tested (just need a mask ?) fixe up up overflow referencing psect udata cs (0X500) into 1 Byte at 0XFFEE 0x1
+    ;movlb  (max >> 8)  ;select the bank of _output
+    ;movwf  max & 07FH  ;mask out bank selection bits in address
+    ;clrf       max,c               ;starting point  
+
     clrf       max,c               ;starting point  
 loop:
     movff      PORTA,tmp           ;read the port
